@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,7 @@
   <script src="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.js"></script>
   
   <style>
+
     
     /* Specific styles for Sorting Algorithm Visualization */
     .sorting-visualization-body {
@@ -129,6 +129,39 @@ button {
     letter-spacing: .8px;
     line-height: 20px;
     margin: 0px;
+    outline: none;
+    overflow: visible;
+    padding: 13px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+
+
+.sorting-buttons button{
+    appearance: button;
+    background-color: #06509f;
+    text-shadow: -2px 1px 5px #000000;
+    border: solid transparent;
+    border-radius: 8px;
+    border-width: 0 0 6px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0px;
     margin-right: -51px;
     outline: none;
     overflow: visible;
@@ -145,40 +178,56 @@ button {
     z-index: 1;
 }
 
-    button:after {
-    background-clip: padding-box;
-    background-color: #1a7de6;
+.sorting-buttons button:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.sorting-buttons button:active {
+    padding-bottom: 10px;
+}
+
+/* Buttons inside Controls Section */
+.controls button {
+    appearance: button;
+    background-color: #06509f;
+    text-shadow: -2px 1px 5px #000000;
     border: solid transparent;
     border-radius: 8px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -2;
-    }
+    border-width: 0 0 6px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0px;
+    margin-right: -51px;
+    outline: none;
+    overflow: visible;
+    padding: 13px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    z-index: 1;
+}
 
-    button:main, button:focus {
-    user-select: auto;
-    }
+.controls button:hover {
+  background: #003366; /* Slightly lighter blue on hover */
+  transform: scale(1.05); /* Hover effect */
+}
 
-    button:hover:not(:disabled) {
-    filter: brightness(1.1);
-    }
-
-    button:disabled {
-    cursor: auto;
-    }
-
-    button:active:after {
-    border-width: 0 0 0px;
-    }
-
-    button:active {
-    padding-bottom: 10px;
-    }
+.controls button:active {
+  transform: scale(0.98); /* Click effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
     .bubble {
   position: relative;
@@ -500,6 +549,8 @@ button {
   z-index: 9999;
 }
 
+
+
 .info-icon-3:hover::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -615,6 +666,7 @@ button {
   white-space: nowrap;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  
 }.info-icon-7 {
   position: relative;
   top: -5px;
@@ -798,47 +850,7 @@ button {
       </div>
     </div>
 
-    <!-- Header section -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <span>AlgoSpear</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class=""></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-              <li class="nav-item "><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Courses</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="readings.html">Reading Materials</a>
-                  <a class="dropdown-item" href="videos.html">Video Tutorials</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown">Assessment</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="exercise.html">Exercises</a>
-                  <a class="dropdown-item" href="quiz.html">Quizzes</a>
-                </div>
-              </li>
-              <li class="nav-item active dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown">Visualizations</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="datastructures.html">Data Structures</a>
-                  <a class="dropdown-item" href="algorithms.html">Algorithms</a>
-                </div>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="login.html"><i class="fa fa-user"></i> Login</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
+
   </div>
   <div class="gradient-overlay"></div>
 
@@ -850,12 +862,12 @@ button {
     <h2 class="ribbon-title">Sorting Algorithm Visualization</h2>
 
     
-    <div class="controls-1">
+    <div class="controls">
       <input type="text" id="array-input" placeholder="Enter numbers (e.g., 5, 10, 3)" />
-      <button onclick="generateArray()" class="generateArrays">Generate Arrays</button>
+      <button onclick="generateArray()" class="sorting-buttons">Generate Arrays</button>
       <span class="bubble"></span>
       <span class="info-icon" data-tooltip="Generate an array with random values with 10 size."><i>?</i></span>
-      <button onclick="generateRandomArray()" class="generateRandomArrays">Generate Random Arrays</button>
+      <button onclick="generateRandomArray()" class="sorting-buttons">Generate Random Arrays</button>
       <span class="bubble-2"></span>
     </div>
     <span class="info-icon-2" data-tooltip="Create an array with user-defined size and values."><i>?</i></span>
@@ -864,22 +876,22 @@ button {
 
     <div class="controls">
       
-      <button onclick="bubbleSort()" class="bubblesort">Bubble Sort</button>
+      <button onclick="bubbleSort()" >Bubble Sort</button>
       <span class="bubble-3"></span>
       <span class="info-icon-3" data-tooltip="Visualize pairwise comparison and swapping to sort elements."><i>?</i></span>
-      <button onclick="selectionSort()" class="selectionsort">Selection Sort</button>
+      <button onclick="selectionSort()">Selection Sort</button>
       <span class="bubble-4"></span>
       <span class="info-icon-4" data-tooltip="Highlight smallest element selection in each sorting pass."><i>?</i></span>
-      <button onclick="insertionSort()" class="insertionsort">Insertion Sort</button>
+      <button onclick="insertionSort()" >Insertion Sort</button>
       <span class="bubble-5"></span>
       <span class="info-icon-5" data-tooltip="Show gradual element insertion into a sorted subsection."><i>?</i></span>
-      <button onclick="mergeSort()" class="mergesort">Merge Sort</button>
+      <button onclick="mergeSort()">Merge Sort</button>
       <span class="bubble-6"></span>
       <span class="info-icon-6" data-tooltip="Display divide-and-conquer sorting by merging sorted halves."><i>?</i></span>
-      <button onclick="quickSort()" class="quicksort">Quick Sort</button>
+      <button onclick="quickSort()" >Quick Sort</button>
       <span class="bubble-7"></span>
       <span class="info-icon-7" data-tooltip="Illustrate pivot-based partitioning and recursive element sorting."><i>?</i></span>
-      <button onclick="heapSort()" class="heapsort">Heap Sort</button>
+      <button onclick="heapSort()">Heap Sort</button>
       <span class="bubble-8"></span>
       <span class="info-icon-8" data-tooltip="Visualize sorting using a binary heap structure."><i>?</i></span>
     </div>
@@ -1433,107 +1445,129 @@ function removeHighlight() {
     generateRandomArray(); // Generate initial random array
 </script>
 <script>
-  document.addEventListener("DOMContentLoaded", async function () {
-  // Initialize Driver.js
-  const driver = new Driver({
-    showProgress: true, // Show step progress
-    allowClose: false, // Prevent users from closing early
-    overlayOpacity: 0.3, // Dim background
-    doneBtnText: "Finish",
-    nextBtnText: "Next",
-    prevBtnText: "Previous",
-    closeBtnText: "Close",
-  });
+    document.addEventListener("DOMContentLoaded", async function () {
+      // First, check if Driver.js is loaded
+      if (typeof Driver === 'undefined') {
+        // If Driver is not loaded, load it dynamically
+        const driverScript = document.createElement('script');
+        driverScript.src = 'https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.min.js';
+        document.head.appendChild(driverScript);
+        
+        // Also add the CSS
+        const driverStyles = document.createElement('link');
+        driverStyles.rel = 'stylesheet';
+        driverStyles.href = 'https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.min.css';
+        document.head.appendChild(driverStyles);
+        
+        // Wait for script to load
+        await new Promise(resolve => driverScript.onload = resolve);
+      }
+      
+      // Initialize Driver.js
+      const driver = new Driver({
+        showProgress: true,
+        allowClose: false,
+        overlayOpacity: 0.3,
+        doneBtnText: "Finish",
+        nextBtnText: "Next",
+        prevBtnText: "Previous",
+        closeBtnText: "Close",
+      });
+  
+      // Define Steps
+      driver.defineSteps([
+        {
+          element: "#array-container",
+          popover: {
+            title: "Visualization Container",
+            description: "This is the main container where sorting visualizations will be shown.",
+            position: "top",
+          },
+        },
+        {
+          element: "#array-input",
+          popover: {
+            title: "Input Field",
+            description: "Enter numbers separated by commas to create your custom array.",
+            position: "bottom",
+          },
+        },
+        {
+          element: ".generateArrays",
+          popover: {
+            title: "Generate Arrays Button",
+            description: "Click to generate an array from your input.",
+            position: "bottom",
+          },
+        },
+        {
+          element: ".generateRandomArrays",
+          popover: {
+            title: "Generate Random Arrays Button",
+            description: "Click to generate a random array with default size 10.",
+            position: "bottom",
+          },
+        },
+        {
+          element: ".bubblesort",
+          popover: {
+            title: "Bubble Sort Button",
+            description: "Visualize sorting using the Bubble Sort algorithm.",
+            position: "top",
+          },
+        },
+        {
+          element: ".selectionsort",
+          popover: {
+            title: "Selection Sort Button",
+            description: "Visualize sorting using the Selection Sort algorithm.",
+            position: "top",
+          },
+        },
+        {
+          element: ".insertionsort",
+          popover: {
+            title: "Insertion Sort Button",
+            description: "Visualize sorting using the Insertion Sort algorithm.",
+            position: "top",
+          },
+        },
+        {
+          element: ".mergesort",
+          popover: {
+            title: "Merge Sort Button",
+            description: "Visualize sorting using the Merge Sort algorithm.",
+            position: "top",
+          },
+        },
+        {
+          element: ".quicksort",
+          popover: {
+            title: "Quick Sort Button",
+            description: "Visualize sorting using the Quick Sort algorithm.",
+            position: "top",
+          },
+        },
+        {
+          element: ".heapsort",
+          popover: {
+            title: "Heap Sort Button",
+            description: "Visualize sorting using the Heap Sort algorithm.",
+            position: "top",
+          },
+        },
+      ]);
+  
+      // Start the tour with a slight delay to ensure all elements are ready
+      setTimeout(() => {
+        driver.start();
+      }, 500);
+      
+      // The CSS for popover buttons should be applied after the popover is created
 
-  // Define Steps
-  driver.defineSteps([
-    {
-      element: "#array-container",
-      popover: {
-        title: "Visualization Container",
-        description: "This is the main container where sorting visualizations will be shown.",
-        position: "top",
-      },
-    },
-    {
-      element: "#array-input",
-      popover: {
-        title: "Input Field",
-        description: "Enter numbers separated by commas to create your custom array.",
-        position: "bottom",
-      },
-    },
-    {
-      element: ".generateArrays",
-      popover: {
-        title: "Generate Arrays Button",
-        description: "Click to generate an array from your input.",
-        position: "bottom",
-      },
-    },
-    {
-      element: ".generateRandomArrays",
-      popover: {
-        title: "Generate Random Arrays Button",
-        description: "Click to generate a random array with default size 10.",
-        position: "bottom",
-      },
-    },
-    {
-      element: ".bubblesort",
-      popover: {
-        title: "Bubble Sort Button",
-        description: "Visualize sorting using the Bubble Sort algorithm.",
-        position: "top",
-      },
-    },
-    {
-      element: ".selectionsort",
-      popover: {
-        title: "Selection Sort Button",
-        description: "Visualize sorting using the Selection Sort algorithm.",
-        position: "top",
-      },
-    },
-    {
-      element: ".insertionsort",
-      popover: {
-        title: "Insertion Sort Button",
-        description: "Visualize sorting using the Insertion Sort algorithm.",
-        position: "top",
-      },
-    },
-    {
-      element: ".mergesort",
-      popover: {
-        title: "Merge Sort Button",
-        description: "Visualize sorting using the Merge Sort algorithm.",
-        position: "top",
-      },
-    },
-    {
-      element: ".quicksort",
-      popover: {
-        title: "Quick Sort Button",
-        description: "Visualize sorting using the Quick Sort algorithm.",
-        position: "top",
-      },
-    },
-    {
-      element: ".heapsort",
-      popover: {
-        title: "Heap Sort Button",
-        description: "Visualize sorting using the Heap Sort algorithm.",
-        position: "top",
-      },
-    },
-  ]);
 
-  // Start the Tour
-  await driver.start();
-});
-
-</script>
+    });
+  </script>
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
