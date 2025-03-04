@@ -145,7 +145,7 @@ button {
 
 
 
-.sorting-buttons button{
+.controls button{
     appearance: button;
     background-color: #06509f;
     text-shadow: -2px 1px 5px #000000;
@@ -177,11 +177,11 @@ button {
     z-index: 1;
 }
 
-.sorting-buttons button:hover:not(:disabled) {
+.controls button:hover:not(:disabled) {
     filter: brightness(1.1);
 }
 
-.sorting-buttons button:active {
+.controls button:active {
     padding-bottom: 10px;
 }
 
@@ -427,7 +427,7 @@ button {
     }
 
     .sorting-visualization-body button:disabled {
-      background-color: #ccc;
+      background-color: #0056b3;
       cursor: not-allowed;
     }
 
@@ -925,10 +925,10 @@ h6, .h6 {
     
     <div class="controls">
       <input type="text" id="array-input" placeholder="Enter numbers (e.g., 5, 10, 3)" />
-      <button onclick="generateArray()" class="sorting-buttons">Generate Arrays</button>
+      <button onclick="generateArray()" id="generateArray" sorting-buttons">Generate Arrays</button>
       <span class="bubble"></span>
       <span class="info-icon" data-tooltip="Generate an array with random values with 10 size."><i>?</i></span>
-      <button onclick="generateRandomArray()" class="sorting-buttons">Generate Random Arrays</button>
+      <button onclick="generateRandomArray()" id="generateRandomArray"  class="sorting-buttons">Generate Random Arrays</button>
       <span class="bubble-2"></span>
     </div>
     <span class="info-icon-2" data-tooltip="Create an array with user-defined size and values."><i>?</i></span>
@@ -937,22 +937,22 @@ h6, .h6 {
 
     <div class="controls">
       
-      <button onclick="bubbleSort()" >Bubble Sort</button>
+      <button onclick="bubbleSort()" class="bubblesort">Bubble Sort</button>
       <span class="bubble-3"></span>
       <span class="info-icon-3" data-tooltip="Visualize pairwise comparison and swapping to sort elements."><i>?</i></span>
-      <button onclick="selectionSort()">Selection Sort</button>
+      <button onclick="selectionSort()" class="selectionsort">Selection Sort</button>
       <span class="bubble-4"></span>
       <span class="info-icon-4" data-tooltip="Highlight smallest element selection in each sorting pass."><i>?</i></span>
-      <button onclick="insertionSort()" >Insertion Sort</button>
+      <button onclick="insertionSort()" class="insertionsort">Insertion Sort</button>
       <span class="bubble-5"></span>
       <span class="info-icon-5" data-tooltip="Show gradual element insertion into a sorted subsection."><i>?</i></span>
-      <button onclick="mergeSort()">Merge Sort</button>
+      <button onclick="mergeSort()" class="mergesort">Merge Sort</button>
       <span class="bubble-6"></span>
       <span class="info-icon-6" data-tooltip="Display divide-and-conquer sorting by merging sorted halves."><i>?</i></span>
-      <button onclick="quickSort()" >Quick Sort</button>
+      <button onclick="quickSort()" class="quicksort">Quick Sort</button>
       <span class="bubble-7"></span>
       <span class="info-icon-7" data-tooltip="Illustrate pivot-based partitioning and recursive element sorting."><i>?</i></span>
-      <button onclick="heapSort()">Heap Sort</button>
+      <button onclick="heapSort()" class="heapsort">Heap Sort</button>
       <span class="bubble-8"></span>
       <span class="info-icon-8" data-tooltip="Visualize sorting using a binary heap structure."><i>?</i></span>
     </div>
@@ -1488,62 +1488,35 @@ function removeHighlight() {
 
 
 
-  
-    function disableButtons() {
-        document.querySelectorAll('button').forEach(button => button.disabled = true);
-    }
-
-    function enableButtons() {
-        document.querySelectorAll('button').forEach(button => button.disabled = false);
-    }
-
-    function pause(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
 
 
 
     generateRandomArray(); // Generate initial random array
 </script>
+
 <script>
     document.addEventListener("DOMContentLoaded", async function () {
-      // First, check if Driver.js is loaded
-      if (typeof Driver === 'undefined') {
-        // If Driver is not loaded, load it dynamically
-        const driverScript = document.createElement('script');
-        driverScript.src = 'https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.min.js';
-        document.head.appendChild(driverScript);
-        
-        // Also add the CSS
-        const driverStyles = document.createElement('link');
-        driverStyles.rel = 'stylesheet';
-        driverStyles.href = 'https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.min.css';
-        document.head.appendChild(driverStyles);
-        
-        // Wait for script to load
-        await new Promise(resolve => driverScript.onload = resolve);
-      }
-      
-      // Initialize Driver.js
-      const driver = new Driver({
-        showProgress: true,
-        allowClose: false,
-        overlayOpacity: 0.3,
-        doneBtnText: "Finish",
-        nextBtnText: "Next",
-        prevBtnText: "Previous",
-        closeBtnText: "Close",
-      });
-  
-      // Define Steps
-      driver.defineSteps([
+        // Initialize Driver.js
+        const driver = new Driver({
+            showProgress: true,   // Show step progress
+            allowClose: false,    // Prevent users from closing early
+            overlayOpacity: 0.3,  // Dim background
+            doneBtnText: "Finish",
+            nextBtnText: "Next",
+            prevBtnText: "Previous",
+            closeBtnText: "Close",
+
+        });
+    
+        // Define tour steps
+        const steps = [
         {
           element: "#array-container",
           popover: {
             title: "Sorting Visualization",
             description: "This is the main container where sorting visualizations will be shown.",
             position: "top",
-          },
+          }
         },
         {
           element: "#array-input",
@@ -1551,23 +1524,23 @@ function removeHighlight() {
             title: "Input Field",
             description: "Enter numbers separated by commas to create your custom array.",
             position: "bottom",
-          },
+          }
         },
         {
-          element: ".generateArrays",
+          element: "#generateArray",
           popover: {
             title: "Generate Arrays Button",
             description: "Click to generate an array from your input.",
             position: "bottom",
-          },
+          }
         },
         {
-          element: ".generateRandomArrays",
+          element: "#generateRandomArray",
           popover: {
             title: "Generate Random Arrays Button",
             description: "Click to generate a random array with default size 10.",
             position: "bottom",
-          },
+          }
         },
         {
           element: ".bubblesort",
@@ -1575,7 +1548,7 @@ function removeHighlight() {
             title: "Bubble Sort Button",
             description: "Visualize sorting using the Bubble Sort algorithm.",
             position: "top",
-          },
+          }
         },
         {
           element: ".selectionsort",
@@ -1583,7 +1556,7 @@ function removeHighlight() {
             title: "Selection Sort Button",
             description: "Visualize sorting using the Selection Sort algorithm.",
             position: "top",
-          },
+          }
         },
         {
           element: ".insertionsort",
@@ -1591,7 +1564,7 @@ function removeHighlight() {
             title: "Insertion Sort Button",
             description: "Visualize sorting using the Insertion Sort algorithm.",
             position: "top",
-          },
+          }
         },
         {
           element: ".mergesort",
@@ -1599,7 +1572,7 @@ function removeHighlight() {
             title: "Merge Sort Button",
             description: "Visualize sorting using the Merge Sort algorithm.",
             position: "top",
-          },
+          }
         },
         {
           element: ".quicksort",
@@ -1607,7 +1580,7 @@ function removeHighlight() {
             title: "Quick Sort Button",
             description: "Visualize sorting using the Quick Sort algorithm.",
             position: "top",
-          },
+          }
         },
         {
           element: ".heapsort",
@@ -1615,20 +1588,20 @@ function removeHighlight() {
             title: "Heap Sort Button",
             description: "Visualize sorting using the Heap Sort algorithm.",
             position: "top",
-          },
-        },
-      ]);
-  
-      // Start the tour with a slight delay to ensure all elements are ready
-      setTimeout(() => {
+          }
+        }
+      ];
+
+      // Start the tour asynchronously after a delay
+      await new Promise(resolve => setTimeout(resolve, 1000)); // 1-second delay
+        driver.defineSteps(steps);
         driver.start();
-      }, 500);
-      
-      // The CSS for popover buttons should be applied after the popover is created
-
-
     });
-  </script>
+
+</script>
+
+
+
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
