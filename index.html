@@ -39,7 +39,6 @@
         margin-bottom: 30px;
         color: #ffffff;
         font-weight: 800;
-        text-shadow: 2px 1px 4px #000000;
     }
 
     .sorting-visualization-body #array-container {
@@ -116,7 +115,7 @@
 button {
     appearance: button;
     background-color: #06509f;
-    text-shadow: -2px 1px 5px #000000;
+    text-shadow: 1px 0px 5px #00000069;    
     border: solid transparent;
     border-radius: 8px;
     border-width: 0 0 6px;
@@ -376,8 +375,9 @@ button {
 
 #toast {
       position: fixed;
-      top: 95px;
+      top: 25px;
       right: 34px;
+      text-shadow: 1px 0px 5px #00000069;
       background-color: #007bff;
       color: white;
       padding: 10px 30px;
@@ -390,6 +390,7 @@ button {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 350px;
     }
     #toast.show {
       opacity: 1;
@@ -411,6 +412,7 @@ button {
       padding: 10px;
       margin-right: -10px;
       margin-left: 10px;
+      text-shadow: 1px 0px 1px #000000;
     }
 
     .toast-body {
@@ -836,8 +838,70 @@ button {
     background-color: red !important;
     transition: background-color 0.3s ease-in-out;
 }
+  
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #161166;
+}
 
+h1, .h1 {
+  font-size: calc(1.3625rem + 1.35vw);
+}
+@media (min-width: 1200px) {
+  h1, .h1 {
+    font-size: 2.375rem;
+  }
+}
 
+h2, .h2 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  h2, .h2 {
+    font-size: 2rem;
+  }
+}
+
+h3, .h3 {
+  font-size: calc(1.2875rem + 0.45vw);
+}
+@media (min-width: 1200px) {
+  h3, .h3 {
+    font-size: 1.625rem;
+  }
+}
+
+h4, .h4 {
+  font-size: calc(1.2625rem + 0.15vw);
+}
+@media (min-width: 1200px) {
+  h4, .h4 {
+    font-size: 1.375rem;
+  }
+}
+
+h5, .h5 {
+  font-size: 1.125rem;
+}
+
+.text-start {
+  text-align: left !important;
+}
+
+.text-end {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+h6, .h6 {
+  font-size: 0.9375rem;
+}
   </style>
 </head>
 
@@ -855,6 +919,8 @@ button {
 
   <!-- Sorting Algorithm Visualization Section -->
   <div class="sorting-visualization-body">
+    <h1 class="text-center">Sorting Algorithm Visualization</h1>
+
     
     <div class="controls">
       <input type="text" id="array-input" placeholder="Enter numbers (e.g., 5, 10, 3)" />
@@ -895,7 +961,7 @@ button {
 
   <div id="toast" class="toast">
     <span id="toast-message"></span>
-    <button type="button" class="close ml- mr-2 py-1" data-dismiss="toast" aria-label="Close" style="border: none; background: none;">
+    <button type="button" class="close-btn ml- mr-2 py-1" data-dismiss="toast" aria-label="Close" style="border: none; background: none;">
         <span aria-hidden="true">&times;</span>
     </button>
   </div>
