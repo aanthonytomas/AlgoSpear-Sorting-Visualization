@@ -50,7 +50,7 @@
       font-size: 20px;
       margin-top: 5px;
       height: 330px;
-      width: 940px;
+      width: 945px;
       border: 2px solid #1701a2;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       text-shadow: -2px 4px 5px #000000;
@@ -952,7 +952,7 @@ h6, .h6 {
       <button onclick="quickSort()" class="quicksort">Quick Sort</button>
       <span class="bubble-7"></span>
       <span class="info-icon-7" data-tooltip="Illustrate pivot-based partitioning and recursive element sorting."><i>?</i></span>
-      <button onclick="heapSort()" class="heapsort">Heap Sort</button>
+      <button onclick="heapSort()">Heap Sort</button>
       <span class="bubble-8"></span>
       <span class="info-icon-8" data-tooltip="Visualize sorting using a binary heap structure."><i>?</i></span>
     </div>
@@ -1488,6 +1488,18 @@ function removeHighlight() {
 
 
 
+  
+    function disableButtons() {
+        document.querySelectorAll('button').forEach(button => button.disabled = true);
+    }
+
+    function enableButtons() {
+        document.querySelectorAll('button').forEach(button => button.disabled = false);
+    }
+
+    function pause(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
 
 
