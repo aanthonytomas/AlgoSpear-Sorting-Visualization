@@ -38,7 +38,8 @@ AlgoSpear is an interactive web-based application designed to help students and 
 4. Hover over the `?` icons to view brief explanations of each algorithm.
 
 ## Preview
-![AlgoSpear Screenshot](image.png)
+<img src="https://github.com/user-attachments/assets/b1136199-cf91-4efe-85ce-04a62404b09a" width="100%" alt="image" >
+
 
 ## Contributing
 Contributions are welcome! Feel free to submit pull requests or open issues to suggest improvements.
